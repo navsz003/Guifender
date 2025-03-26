@@ -7,9 +7,9 @@ public class NoteObject : MonoBehaviour
 
 	public bool canBePressed;
 
-	public KeyCode keyToPress;      // ºóÐøÒªÌæ»»³ÉNAudioÊ¶±ðµÄÆµÂÊ
-	//public KeyCode leftKey;		// ×óÊÖÊý×Ö
-	//public KeyCode rightKey;		// ÓÒÊÖ×ÖÄ¸
+	public KeyCode keyToPress;      // ï¿½ï¿½ï¿½ï¿½Òªï¿½æ»»ï¿½ï¿½NAudioÊ¶ï¿½ï¿½ï¿½Æµï¿½ï¿½
+	//public KeyCode leftKey;		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	//public KeyCode rightKey;		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸
 	//public double frequencyToPlay;
 
     // Start is called before the first frame update
@@ -25,7 +25,7 @@ public class NoteObject : MonoBehaviour
 		{
 			if (canBePressed)
 			{
-				gameObject.SetActive(false);    // Òô·û»÷ÖÐºóÏûÊ§
+				gameObject.SetActive(false);    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðºï¿½ï¿½ï¿½Ê§
 				GameManager.instance.NoteHit();
 			}
 		}
@@ -45,6 +45,7 @@ public class NoteObject : MonoBehaviour
 		{
 			canBePressed = false;
 			gameObject.SetActive(false);
+			Debug.Log("Hits");
 			GameManager.instance.NoteMissed();
 		}
 	}

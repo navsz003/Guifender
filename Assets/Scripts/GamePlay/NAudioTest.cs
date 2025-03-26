@@ -17,10 +17,8 @@ public class NAudioTest : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-		// 设置音频格式，例如：采样率为44100Hz，16位，单声道
-		waveFormat = waveIn.WaveFormat;
 
-		// 指定处理音频数据的回调方法
+		waveFormat = waveIn.WaveFormat;
 		waveIn.DataAvailable += OnDataAvailable;
 
 		// 开始录音

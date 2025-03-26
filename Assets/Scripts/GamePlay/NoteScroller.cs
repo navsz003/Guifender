@@ -5,7 +5,7 @@ using UnityEngine;
 public class NoteScroller : MonoBehaviour
 {
 
-	// Òô·ûÒÆ¶¯µÄËÙ¶È
+	// ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½Ù¶ï¿½
 	public float beatTempo;
 
 	public bool hasStarted;
@@ -14,7 +14,7 @@ public class NoteScroller : MonoBehaviour
     void Start()
     {
 		//beatTempo = beatTempo / 60f;
-		beatTempo = beatTempo / 30f;	// ËÙ¶È¡Á2£¬À­´óÒô·ûµÄ¼ä¾à
+		beatTempo = beatTempo / 30f;	// ï¿½Ù¶È¡ï¿½2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½
     }
 
     // Update is called once per frame
@@ -29,7 +29,7 @@ public class NoteScroller : MonoBehaviour
 		}
 		else
 		{
-			transform.position -= new Vector3(beatTempo * Time.deltaTime, 0f, 0f);
+			transform.position -= new Vector3(beatTempo * Time.deltaTime * 100, 0, 0);
 		}
     }
 }
