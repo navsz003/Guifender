@@ -5,16 +5,13 @@ using UnityEngine;
 public class NoteScroller : MonoBehaviour
 {
 
-	// ����ƶ����ٶ�
 	public float beatTempo;
-
 	public bool hasStarted;
 
     // Start is called before the first frame update
     void Start()
     {
-		//beatTempo = beatTempo / 60f;
-		beatTempo = beatTempo / 30f;	// �ٶȡ�2����������ļ��
+		beatTempo = beatTempo / 30f;
     }
 
     // Update is called once per frame
