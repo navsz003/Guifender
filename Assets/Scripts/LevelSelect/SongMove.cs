@@ -22,7 +22,7 @@ public class SongMove : MonoBehaviour
 	private int albumPointer;
 	private bool apChanged = false;
 
-	private SpriteRenderer[] songHolder = new SpriteRenderer[5];        // 存放子物体的SpriteRenderer
+	private SpriteRenderer[] songHolder = new SpriteRenderer[5];		// 存放子物体的SpriteRenderer
 	[SerializeField]
 	private TMP_Text songIfo;
 
@@ -31,7 +31,7 @@ public class SongMove : MonoBehaviour
 	public void MoveAP(bool direction)
 	{
 		if (direction)
-			albumPointer = (albumPointer + 1) % albumList.Length;					// 右移
+			albumPointer = (albumPointer + 1) % albumList.Length;						// 右移
 		else
 			albumPointer = ((albumPointer - 1) + albumList.Length) % albumList.Length;	// 左移
 		apChanged = true;

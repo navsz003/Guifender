@@ -43,13 +43,6 @@ public class GameManager : MonoBehaviour
 	{
 		Debug.Log("Hit");
 
-		// if (音符x坐标 - 判定线x坐标 > 1)
-		//		HitEarly();
-		// else if (音符x坐标 - 判定线x坐标 > -1)
-		//		HitPerfect();				
-		// else
-		//		HitLate();
-
 	}
 
 	public void NoteMissed()

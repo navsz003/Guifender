@@ -45,13 +45,13 @@ public class LevelCursor : MonoBehaviour
 				songMove.MoveAP(true);
 			else if (yIndex == 1)	// PREIOUS
 				songMove.MoveAP(false);
-			else if (yIndex == 2)	// 
+			else if (yIndex == 2)	// SELECT
 				SceneManager.LoadScene("01_02_GamePlayScenes");
-			else if (yIndex == 3)
+			else if (yIndex == 3)	// DIFFICULTY
 				Debug.Log("Difficulty");
-			else if (yIndex == 4)
+			else if (yIndex == 4)	// FAVOURITE
 				Debug.Log("Favourite");
-			else if (yIndex == 5)
+			else if (yIndex == 5)	// BACK
 				SceneManager.LoadScene("00_MenuScenes");
 			else
 				Debug.Log("Out of range");

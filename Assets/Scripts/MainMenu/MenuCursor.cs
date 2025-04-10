@@ -49,9 +49,5 @@ public class MenuCursor : MonoBehaviour
 		// 选中选项
 		if (Input.GetKeyDown(KeyCode.Return))
 			SceneManager.LoadScene(SelectScene[YIndex]);
-			
-			
-		
-
 	}
 }

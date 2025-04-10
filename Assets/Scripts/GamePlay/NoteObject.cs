@@ -5,29 +5,46 @@ using UnityEngine;
 public class NoteObject : MonoBehaviour
 {
 
-	public bool canBePressed;
+	private StringVariable fatherStr;
+	private NoteScroller fatherNS;
 
-	public KeyCode keyToPress;      // ����Ҫ�滻��NAudioʶ���Ƶ��
-	//public KeyCode leftKey;		// ��������
-	//public KeyCode rightKey;		// ������ĸ
-	//public double frequencyToPlay;
+	public bool canBePressed;		// 音符到达正确的位置
+	public KeyCode keyToPress;		// 键盘触发
+	public int noteNum;
+	public float feq2Play;          // 吉他触发
 
-    // Start is called before the first frame update
-    void Start()
+	public Sprite hitsSprite;
+
+
+	// Start is called before the first frame update
+	void Start()
     {
-        
-    }
+		fatherStr = transform.parent.GetComponent<StringVariable>();
+		fatherNS = GetComponentInParent<NoteScroller>();
+		feq2Play = fatherNS.Pos2Feq(fatherStr.strNum, noteNum);
+
+		hitsSprite = Resources.Load<Sprite>("Img/notes/NoteHits");
+	}
 
     // Update is called once per frame
     void Update()
     {
-		if (Input.GetKeyDown(keyToPress))
+
+		// 音符在正确的位置击中
+		if (canBePressed)
 		{
-			if (canBePressed)
+			if (Input.GetKeyDown(keyToPress))
 			{
-				gameObject.SetActive(false);    // ������к���ʧ
-				GameManager.instance.NoteHit();
+				
+				SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+				spriteRenderer.sprite = hitsSprite;
+
+				StartCoroutine(DestroyAfterDelay(1.0f));	// 显示1秒击中图片
+
+				//gameObject.SetActive(false);
+				//GameManager.instance.NoteHit();
 			}
+
 		}
     }
 
@@ -45,11 +62,18 @@ public class NoteObject : MonoBehaviour
 		{
 			canBePressed = false;
 			gameObject.SetActive(false);
-			Debug.Log("Hits");
+
+			Debug.Log("missed");
 			GameManager.instance.NoteMissed();
 		}
 	}
 
+	private IEnumerator DestroyAfterDelay(float delay)
+	{
+		yield return new WaitForSeconds(delay);
+		Destroy(gameObject);
+	}
+	
 }
 
 
