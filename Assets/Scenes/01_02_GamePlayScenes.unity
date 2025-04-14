@@ -222,10 +222,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67b4a4ab35a14854c9c1f73188ccd416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBePressed: 0
-  keyToPress: 54
+  canBeHits: 0
+  keyToPress: 0
   noteNum: 0
   feq2Play: 0
+  detectedFeq: 0
+  feqTolerance: 50
   hitsSprite: {fileID: 0}
 --- !u!58 &46122920
 CircleCollider2D:
@@ -289,37 +291,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!1 &197708395
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 197708396}
-  m_Layer: 0
-  m_Name: NotesHIts
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &197708396
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 197708395}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -615.9793, y: -253.71246, z: -5.6340475}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 469235766}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &198464966
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,74 +420,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 469235766}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &450259011
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 450259014}
-  - component: {fileID: 450259013}
-  - component: {fileID: 450259012}
-  m_Layer: 0
-  m_Name: EventSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &450259012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 450259011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
---- !u!114 &450259013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 450259011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
---- !u!4 &450259014
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 450259011}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &450940898
 GameObject:
   m_ObjectHideFlags: 0
@@ -591,10 +494,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67b4a4ab35a14854c9c1f73188ccd416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBePressed: 0
+  canBeHits: 0
   keyToPress: 51
   noteNum: 0
   feq2Play: 0
+  detectedFeq: 0
+  feqTolerance: 50
   hitsSprite: {fileID: 0}
 --- !u!58 &450940902
 CircleCollider2D:
@@ -714,7 +619,6 @@ Transform:
   m_Children:
   - {fileID: 1508850737}
   - {fileID: 1839004412}
-  - {fileID: 197708396}
   - {fileID: 355784794}
   - {fileID: 1577419673}
   m_Father: {fileID: 0}
@@ -931,7 +835,7 @@ Transform:
   m_GameObject: {fileID: 790621053}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.9278054, y: -1.0590091, z: 0.21749274}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -944,9 +848,9 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 790621053}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04ea6889f7ceedd48a26a5907beaabad, type: 3}
+  m_Script: {fileID: 11500000, guid: 358b534775263c940aa774ce4e28007c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &835274331
@@ -1162,10 +1066,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67b4a4ab35a14854c9c1f73188ccd416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBePressed: 0
+  canBeHits: 0
   keyToPress: 49
   noteNum: 0
   feq2Play: 0
+  detectedFeq: 0
+  feqTolerance: 50
   hitsSprite: {fileID: 0}
 --- !u!58 &1000773194
 CircleCollider2D:
@@ -1328,10 +1234,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67b4a4ab35a14854c9c1f73188ccd416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBePressed: 0
+  canBeHits: 0
   keyToPress: 50
   noteNum: 0
   feq2Play: 0
+  detectedFeq: 0
+  feqTolerance: 50
   hitsSprite: {fileID: 0}
 --- !u!58 &1014313657
 CircleCollider2D:
@@ -1467,10 +1375,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67b4a4ab35a14854c9c1f73188ccd416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBePressed: 0
-  keyToPress: 51
+  canBeHits: 0
+  keyToPress: 0
   noteNum: 0
   feq2Play: 0
+  detectedFeq: 0
+  feqTolerance: 50
   hitsSprite: {fileID: 0}
 --- !u!58 &1021375089
 CircleCollider2D:
@@ -1633,10 +1543,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67b4a4ab35a14854c9c1f73188ccd416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBePressed: 0
-  keyToPress: 50
+  canBeHits: 0
+  keyToPress: 0
   noteNum: 0
   feq2Play: 0
+  detectedFeq: 0
+  feqTolerance: 50
   hitsSprite: {fileID: 0}
 --- !u!58 &1049453159
 CircleCollider2D:
@@ -1871,10 +1783,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67b4a4ab35a14854c9c1f73188ccd416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBePressed: 0
+  canBeHits: 0
   keyToPress: 51
   noteNum: 0
   feq2Play: 0
+  detectedFeq: 0
+  feqTolerance: 50
   hitsSprite: {fileID: 0}
 --- !u!58 &1208133867
 CircleCollider2D:
@@ -2010,10 +1924,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67b4a4ab35a14854c9c1f73188ccd416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBePressed: 0
-  keyToPress: 52
+  canBeHits: 0
+  keyToPress: 0
   noteNum: 0
   feq2Play: 0
+  detectedFeq: 0
+  feqTolerance: 50
   hitsSprite: {fileID: 0}
 --- !u!58 &1317787489
 CircleCollider2D:
@@ -2336,10 +2252,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67b4a4ab35a14854c9c1f73188ccd416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBePressed: 0
+  canBeHits: 0
   keyToPress: 51
   noteNum: 0
   feq2Play: 0
+  detectedFeq: 0
+  feqTolerance: 50
   hitsSprite: {fileID: 0}
 --- !u!58 &1576524748
 CircleCollider2D:
@@ -2552,10 +2470,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67b4a4ab35a14854c9c1f73188ccd416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBePressed: 0
-  keyToPress: 53
+  canBeHits: 0
+  keyToPress: 0
   noteNum: 0
   feq2Play: 0
+  detectedFeq: 0
+  feqTolerance: 50
   hitsSprite: {fileID: 0}
 --- !u!58 &1612642659
 CircleCollider2D:
@@ -2828,10 +2748,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67b4a4ab35a14854c9c1f73188ccd416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBePressed: 0
+  canBeHits: 0
   keyToPress: 53
   noteNum: 0
   feq2Play: 0
+  detectedFeq: 0
+  feqTolerance: 50
   hitsSprite: {fileID: 0}
 --- !u!58 &1746855667
 CircleCollider2D:
@@ -3078,10 +3000,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67b4a4ab35a14854c9c1f73188ccd416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBePressed: 0
+  canBeHits: 0
   keyToPress: 50
   noteNum: 0
   feq2Play: 0
+  detectedFeq: 0
+  feqTolerance: 50
   hitsSprite: {fileID: 0}
 --- !u!58 &1850406085
 CircleCollider2D:
@@ -3217,10 +3141,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67b4a4ab35a14854c9c1f73188ccd416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBePressed: 0
+  canBeHits: 0
   keyToPress: 49
   noteNum: 0
   feq2Play: 0
+  detectedFeq: 0
+  feqTolerance: 50
   hitsSprite: {fileID: 0}
 --- !u!58 &1855456374
 CircleCollider2D:
@@ -3447,10 +3373,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67b4a4ab35a14854c9c1f73188ccd416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBePressed: 0
+  canBeHits: 0
   keyToPress: 51
   noteNum: 0
   feq2Play: 0
+  detectedFeq: 0
+  feqTolerance: 50
   hitsSprite: {fileID: 0}
 --- !u!58 &1901569780
 CircleCollider2D:
@@ -3731,4 +3659,3 @@ SceneRoots:
   - {fileID: 469235766}
   - {fileID: 738672716}
   - {fileID: 790621055}
-  - {fileID: 450259014}

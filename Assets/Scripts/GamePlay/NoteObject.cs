@@ -2,16 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using System;
+using NAudio.Wave;
+using NAudio.Dsp;
+
 public class NoteObject : MonoBehaviour
 {
 
 	private StringVariable fatherStr;
 	private NoteScroller fatherNS;
 
-	public bool canBePressed;		// 音符到达正确的位置
+	public bool canBeHits;		// 音符到达正确的位置
 	public KeyCode keyToPress;		// 键盘触发
 	public int noteNum;
 	public float feq2Play;          // 吉他触发
+	public float detectedFeq;
+	public float feqTolerance = 5.0f;	// 允许误差
 
 	public Sprite hitsSprite;
 
@@ -31,9 +37,11 @@ public class NoteObject : MonoBehaviour
     {
 
 		// 音符在正确的位置击中
-		if (canBePressed)
+		if (canBeHits)
 		{
-			if (Input.GetKeyDown(keyToPress))
+			detectedFeq = AudioManager.Instance.DetectedFrequency;
+			// Debug.Log(detectedFeq);
+			if (Input.GetKeyDown(keyToPress) || (Mathf.Abs(detectedFeq-feq2Play)< feqTolerance))
 			{
 				
 				SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
@@ -44,7 +52,6 @@ public class NoteObject : MonoBehaviour
 				//gameObject.SetActive(false);
 				//GameManager.instance.NoteHit();
 			}
-
 		}
     }
 
@@ -52,7 +59,7 @@ public class NoteObject : MonoBehaviour
 	{
 		if(other.tag == "Activator")
 		{
-			canBePressed = true;
+			canBeHits = true;
 		}
 	}
 
@@ -60,11 +67,11 @@ public class NoteObject : MonoBehaviour
 	{
 		if(other.tag == "Activator")
 		{
-			canBePressed = false;
+			canBeHits = false;
 			gameObject.SetActive(false);
 
 			Debug.Log("missed");
-			GameManager.instance.NoteMissed();
+			// GameManager.instance.NoteMissed();
 		}
 	}
 
